@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './SideBar.css';
+import styles from './SideBar.module.css';
 
 const SideBar = ({ show, click }) => (
-    <nav className={ `side-bar ${show ? "open" : ""} `}>
-        <div className="side-bar__close">
+    <nav className={ `${styles.side_bar} ${show ? "open" : ""} `}>
+        <div className={styles.side_bar__close}>
             <span onClick={click}>X</span>
         </div>
         <ul>
             <li>
                 <NavLink 
-                    className="side-bar__link"
+                    className={styles.side_bar__link}
                     to="/current"
                     onClick={click}>
                     Clima Actual
@@ -19,7 +19,7 @@ const SideBar = ({ show, click }) => (
             </li>
             <li>
                 <NavLink
-                    className="side-bar__link"
+                    className={styles.side_bar__link}
                     to="/forecast"
                     onClick={click}>
                     Clima a Futuro

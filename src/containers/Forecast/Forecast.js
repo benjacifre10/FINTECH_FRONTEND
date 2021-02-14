@@ -5,7 +5,7 @@ import styles from './Forecast.module.css';
 const Forecast = () => {
     return (
         <div className={styles.wrapper}>
-            forecast            
+            <h2>Clima a Futuro</h2>            
         </div>
     );
 };

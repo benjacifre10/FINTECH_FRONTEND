@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './ToggleButton.css';
+import styles from './ToggleButton.module.css';
 
 const ToggleButton = ({ click }) => (
-    <button className="toggle-button" onClick={click}>
-        <div className="toggle-button__line"/>
-        <div className="toggle-button__line"/>
-        <div className="toggle-button__line"/>
+    <button className={styles.toggle_button} onClick={click}>
+        <div className={styles.toggle_button__line}/>
+        <div className={styles.toggle_button__line}/>
+        <div className={styles.toggle_button__line}/>
     </button>
 );
 

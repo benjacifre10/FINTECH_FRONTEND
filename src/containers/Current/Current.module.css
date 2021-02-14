@@ -10,3 +10,18 @@
     border-radius: 5px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
+
+.wrapper > h2 {
+    color: white;
+    text-align: center;
+}
+
+.spinner {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}

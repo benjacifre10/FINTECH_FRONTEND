@@ -26,18 +26,27 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 5px;
   }
   
   .flip_card_front {
     background-color: rgb(57, 84, 170);
-    color: black;
+    color: white;
   }
 
   .flip_card_front > i {
     position:relative;
     text-align: center;
-      font-size: 100px;
+    font-size: 100px;
     top: calc(50% - 50px);
+  }
+
+  .flip_card_front > img {
+    position: relative;
+    max-width: 95%;
+    max-height: 100%;
+    height: auto;
+    top: 25%;
   }
   
   .flip_card_back {

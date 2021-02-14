@@ -1,42 +1,42 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './NavigationBar.css';
+import styles from './NavigationBar.module.css';
 
 import ToggleButton from '../SideBar/ToggleButton';
 
 const NavigationBar = ({ toggleClick }) => (
-    <header className="toolbar">
-        <nav className="toolbar__navigation">
-            <div className="toolbar__toggle-button">
+    <header className={styles.toolbar}>
+        <nav className={styles.toolbar__navigation}>
+            <div className={styles.toolbar__toggle_button}>
                 <ToggleButton click={toggleClick}/>
             </div>
-            <div className="toolbar__logo">
+            <div className={styles.toolbar__logo}>
                 <NavLink
                     to="/"
                 >
                     <img 
-                        className="toolbar__logo-img"
-                        src="/favicon.ico"
-                        alt="claro"
+                        className={styles.toolbar__logo_img}
+                        src="/logo_white_cropped.png"
+                        alt="fintech"
                     />
                 </NavLink>
             </div>
-            <div className="spacer" />
-            <div className="toolbar__navigation-items">
+            <div className={styles.spacer} />
+            <div className={styles.toolbar__navigation_items}>
                 <ul>
                     <li>
                         <NavLink 
-                            className="toolbar__link"
-                            activeClassName="toolbar__link-active"
+                            className={styles.toolbar__link}
+                            activeClassName={styles.toolbar__link_active}
                             to="/current">
                             Clima Actual
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            className="toolbar__link"
-                            activeClassName="toolbar__link-active"
+                            className={styles.toolbar__link}
+                            activeClassName={styles.toolbar__link_active}
                             to="/forecast">
                             Clima a Futuro
                         </NavLink>

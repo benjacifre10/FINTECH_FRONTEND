@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
+import 'biga/dist/index.css';
 import './index.module.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
