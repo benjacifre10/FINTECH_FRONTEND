@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 import './SideBar.css';
 
-import { readFile } from '../../../../util/importCSV';
-
 const SideBar = ({ show, click }) => (
     <nav className={ `side-bar ${show ? "open" : ""} `}>
         <div className="side-bar__close">
@@ -14,24 +12,18 @@ const SideBar = ({ show, click }) => (
             <li>
                 <NavLink 
                     className="side-bar__link"
-                    to="/components"
+                    to="/current"
                     onClick={click}>
-                    Componentes
+                    Clima Actual
                 </NavLink>
             </li>
             <li>
                 <NavLink
                     className="side-bar__link"
-                    to="/plans"
+                    to="/forecast"
                     onClick={click}>
-                    Planes
+                    Clima a Futuro
                 </NavLink>
-            </li>
-            <li>
-                <label htmlFor="file-input">
-                    <i className="fas fa-upload"></i>
-                </label>
-                <input id="file-input" type="file" onChange={readFile} />
             </li>
         </ul>
     </nav>

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './Forecast.module.css';
+
 const Forecast = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             forecast            
         </div>
     );

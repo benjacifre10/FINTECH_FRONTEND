@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import './index.css';
+import './index.module.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import abmReducer from '.store/reducers/abm';
+import abmReducer from './store/reducers/abm';
 
 const composeEnhancers = compose;
 
@@ -22,7 +23,9 @@ const store = createStore(rootReducer, composeEnhancers(
 
 const app = (
   <Provider store={store}>
-    <App/>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
   </Provider>
 )
 

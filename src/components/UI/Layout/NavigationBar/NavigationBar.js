@@ -5,8 +5,6 @@ import './NavigationBar.css';
 
 import ToggleButton from '../SideBar/ToggleButton';
 
-import { readFile } from '../../../../util/importCSV';
-
 const NavigationBar = ({ toggleClick }) => (
     <header className="toolbar">
         <nav className="toolbar__navigation">
@@ -31,23 +29,17 @@ const NavigationBar = ({ toggleClick }) => (
                         <NavLink 
                             className="toolbar__link"
                             activeClassName="toolbar__link-active"
-                            to="/components">
-                            Componentes
+                            to="/current">
+                            Clima Actual
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             className="toolbar__link"
                             activeClassName="toolbar__link-active"
-                            to="/plans">
-                            Planes
+                            to="/forecast">
+                            Clima a Futuro
                         </NavLink>
-                    </li>
-                    <li>
-                        <label htmlFor="file-input">
-                            <i className="fas fa-upload"></i>
-                        </label>
-                        <input id="file-input" type="file" onChange={readFile} />
                     </li>
                 </ul> 
             </div>

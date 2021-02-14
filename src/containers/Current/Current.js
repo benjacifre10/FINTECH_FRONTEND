@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './Current.module.css';
+
 const Current = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             current
         </div>
     );

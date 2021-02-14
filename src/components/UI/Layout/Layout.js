@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './Layout.css';
+import styles from './Layout.module.css';
 
 import NavigationBar from './NavigationBar/NavigationBar';
 import SideBar from './SideBar/SideBar';
@@ -18,11 +18,11 @@ const Layout = (props) => {
     }
 
     return (
-        <div className="layout">
+        <div className={styles.layout}>
             <NavigationBar toggleClick={toggleClickHandler}/>
             <SideBar show={showSideBar} click={backdropClickHandler}/>
             { showSideBar ? <Backdrop backdropClick={backdropClickHandler}/> : null }
-            <main className="content">
+            <main className={styles.content}>
                 {props.children}
             </main>
         </div>
