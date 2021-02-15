@@ -5,10 +5,10 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 export const start = () => ({ type: actionTypes.ABM_START });
 
-export const getAll = (serverURL, endpoint, subendpoint) => {
+export const getAll = (serverURL, endpoint, subendpoint = '') => {
     return dispatch => {
         dispatch(start());
-        let url = `${serverURL}${endpoint}${subendpoint}`;
+        let url = `${serverURL}${endpoint}${subendpoint? subendpoint : ''}`;
         axios
             .get(url)
             .then(response => {

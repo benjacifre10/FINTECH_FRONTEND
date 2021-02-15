@@ -14,27 +14,22 @@ const Current = () => {
 
     const dispatch = useDispatch();
 
-    
     const [data, setData] = useState(null);
     const [front, setFront] = useState(null);
     const [ciudad, setCiudad] = useState('');
     const ciudades = [{nombre: 'Barcelona'}, {nombre: 'Paris'}, {nombre: 'Brasilia'}, {nombre: 'Moscu'}, {nombre: 'Londres'}];
     const currentWeather = useSelector(state => state.abm.completeList.current);
-    const usePreviousData = (value) => {
-        console.log('function_previous', value);
-        const ref = useRef();
-        useEffect(() => {
-            ref.current = value;
-            return ref.current;
-        });
-    };
-
-    const prevDataRef = usePreviousData(currentWeather);
-
+    const prevDataRef = useRef();
 
     useEffect(() => {
         dispatch(actions.getAll(serverURL, '/current', `/?city=${ciudad}`));
     }, [dispatch, ciudad]);
+
+    useEffect(() => {
+        if (data !== prevDataRef.current) {
+            prevDataRef.current = data;
+        } 
+    }, [data]);
 
     useEffect(() => {
         if (currentWeather) {
@@ -44,7 +39,6 @@ const Current = () => {
                 </React.Fragment>
             );
             if (ciudad && currentWeather.current === undefined) {
-                console.log('con ciudad');
                 let icon = `http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`;
                 setData(
                     <React.Fragment>
@@ -64,7 +58,7 @@ const Current = () => {
                             <h3>{currentWeather.timezone}</h3>
                             <h4><i>{currentWeather.current.weather[0].description}</i></h4>
                             <img src={icon} alt="icon"/>
-                            <p>Temperatura: {((currentWeather.current.temp)/10).toFixed(1)}</p>
+                            <p>Temperatura: {((currentWeather.current.temp)/10).toFixed(1)}°</p>
                             <p>Humedad: {currentWeather.current.humidity}%</p>
                             <p>Viento: {(currentWeather.current.wind_speed).toFixed(1)} km/h</p>
                         </React.Fragment>
@@ -82,7 +76,6 @@ const Current = () => {
 
     return (
         <div className={styles.wrapper}>
-            {console.log('render', prevDataRef, currentWeather)}
             <h2>Clima Actual</h2>
             <div className={styles.center}>
                 <ComboBox 
@@ -97,15 +90,11 @@ const Current = () => {
                     }}
                 />
             </div>
-            {data && prevDataRef === undefined ?
-                currentWeather !== prevDataRef ?
+            {data ?
                 <Card 
                     front={front}
                     data={data}>
                 </Card> :
-                <div className={styles.spinner}>
-                    <Spinner />
-                </div> :
                 <div className={styles.spinner}>
                     <Spinner />
                 </div> 
